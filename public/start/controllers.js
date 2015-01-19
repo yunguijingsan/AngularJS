@@ -1,4 +1,4 @@
-function PhoneListCtrl($scope, $http) {
+function PhoneListCtrl($scope, $http,Phone) {
     $http.get('phones.json').success(function(data) {
         $scope.phones = Phone.query();
     });
