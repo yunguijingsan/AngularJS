@@ -1,0 +1,23 @@
+[
+    {
+        "age": 0,
+        "id": "MI",
+        "name": "MI",
+        "snippet": "Are you ready for everything life throws your way?",
+        "imageUrl":"../../images/phone.png"
+    },
+    {
+        "age": 1,
+        "id": "Smartisan",
+        "name": "Smartisan",
+        "snippet": "Are you ready for everything life throws your way?",
+        "imageUrl":"../../images/phone.png"
+    },
+    {
+        "age": 2,
+        "id": "Motorola",
+        "name": "Motorola ",
+        "snippet": "Are you ready for everything life throws your way?",
+        "imageUrl":"../../images/phone.png"
+    }
+]
