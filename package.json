@@ -14,5 +14,13 @@
     "debug": "~2.0.0",
     "jade": "~1.6.0",
     "less-middleware": "1.0.x"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-coverage": "^0.2.7",
+    "karma-ie-launcher": "^0.1.5",
+    "karma-jasmine": "^0.3.5"
   }
 }

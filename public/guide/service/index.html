@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="../../lib/angular.js"></script>
+    <script src="script.js"></script>
+    <style>
+        div.spicy div {
+            padding: 10px;
+            border: solid 2px blue;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="UnicornController">
+    apiToken: {{unicornLauncher.launchedCount}} <button ng-click="launch();">Launch</button>
+</div>
+<div ng-controller="DemoController as demo">
+Client ID: {{demo.clientId}}
+</div>
+<div id="simple" ng-controller="MyController">
+    <p>Let's try this simple notify service, injected into the controller...</p>
+    <input ng-init="message='test'" ng-model="message" >
+    <button ng-click="callNotify(message);">NOTIFY</button>
+    <p>(you have to click 3 times to see an alert)</p>
+</div>
+</body>
+</html>

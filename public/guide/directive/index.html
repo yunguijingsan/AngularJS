@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="../../lib/angular.js"></script>
+    <script src="command.js"></script>
+</head>
+<body>
+<div ng-controller="NaomiController">
+    <my-customer4></my-customer4>
+</div>
+<hr>
+<div ng-controller="IgorController">
+    <my-customer4></my-customer4>
+</div>
+<div ng-controller="timeController">
+    Date format: <input ng-model="format"> <hr/>
+    Current time is: <span my-current-time="format"></span>
+</div>
+<div ng-controller="docController">
+    <div my-customer1></div>
+</div>
+<div ng-controller="docController">
+   <div my-customer2></div>
+</div>
+<div ng-controller="docController">
+   <div my-customer3 type="name"></div>
+   <div my-customer3 type="address"></div>
+</div>
+<svg ng-controller="AttrController">
+    <circle ng-attr-cx="{{cx}}" cy="50" r="40" stroke="black" stroke-width="2" fill="red"/>
+</svg>
+
+</body>
+</html>
