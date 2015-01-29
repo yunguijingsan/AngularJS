@@ -1,54 +1,43 @@
 module.exports = function(grunt) {
 
+    // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        concat: {
-            options: {
-                separator: ';'
-            },
-            dist: {
-                src: ['public/js/*.js'],
-                dest: 'dist/<%= pkg.name %>.js'
-            }
-        },
         uglify: {
             options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-            dist: {
-                files: {
-                    'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
-                }
+            build: {
+                expand: true,     // Enable dynamic expansion.
+                cwd: 'public/',      // Src matches are relative to this path.
+                src: ['**/*.js'], // Actual pattern(s) to match.
+                dest: 'build/',   // Destination path prefix.
+                ext: '.min.js'  // Dest filepaths will have this extension.
             }
-        },
-        qunit: {
-            files: ['test/**/*.html']
         },
         jshint: {
-            files: ['Gruntfile.js', 'public/js/*.js', 'public/test/js/*.js'],
-            options: {
-                //这里是覆盖JSHint默认配置的选项
-                globals: {
-                    jQuery: true,
-                    console: true,
-                    module: true,
-                    document: true
-                }
+            foo: {
+                src: ['public/js/*.js']
             }
         },
-        watch: {
-            files: ['<%= jshint.files %>'],
-            tasks: ['jshint', 'qunit']
+        concat: {
+            foo: {
+                files: {
+                    'build/a.js': ['public/js/add.js', 'public/js/xcode.js']
+                }
+            }
         }
     });
 
+    // 加载包含 "uglify" 任务的插件。
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-qunit');
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('test', ['jshint']);
+    grunt.registerTask('log', 'Log some stuff.', function() {
+        grunt.log.write('Logging some stuff...').ok();
+    });
 
-    grunt.registerTask('default', ['jshint', 'concat', 'uglify']);
+    // 默认被执行的任务列表。
+    grunt.registerTask('default', ['uglify','jshint','concat']);
 };
